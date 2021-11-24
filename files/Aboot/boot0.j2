@@ -482,6 +482,7 @@ write_platform_specific_cmdline() {
     if [ "$sid" = "Upperlake" ] || [ "$sid" = "UpperlakeES" ]; then
         aboot_machine=arista_7060_cx32s
         flash_size=3700
+        cmdline_add memmap=1536M!512M
     fi
     if [ "$sid" = "UpperlakePlus" ]; then
         aboot_machine=arista_7060cx2_32s
