@@ -325,6 +325,8 @@ RUN apt-get update && apt-get install -y \
         libgtest-dev \
         libgcc-8-dev
 
+RUN apt install -t buster-backports zstd
+
 RUN apt-get -y build-dep openssh
 
 # Build fix for ARMHF buster libsairedis
