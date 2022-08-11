@@ -158,6 +158,10 @@ if [ "$in_kdump" = false ]; then
     fi
 fi
 
+# Use tmpfs as Kubernetes dir
+mkdir -p ${rootmnt}/var/lib/kubelet
+mount -t tmpfs -o rw,nodev,size={{ KUBELET_RAMFS_SIZE }} tmpfs ${rootmnt}/var/lib/kubelet
+
 ## Mount the boot directory in the raw partition, bypass the overlay
 mkdir -p ${rootmnt}/boot
 mount --bind ${rootmnt}/host/$image_dir/boot ${rootmnt}/boot
